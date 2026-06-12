@@ -33,7 +33,7 @@ Set-Content -Path $VersionPath -Value $Release.tag_name -Encoding UTF8
 $UninstallScript = @'
 $ErrorActionPreference = "Stop"
 
-$AppName = "calculator"
+$AppName = "mycalculator"
 $InstallDir = Join-Path $env:LOCALAPPDATA "Programs\$AppName"
 
 $Process = Get-Process $AppName -ErrorAction SilentlyContinue
@@ -50,7 +50,6 @@ if ($UserPath) {
     }
 
     $NewPath = $PathItems -join ";"
-
     [Environment]::SetEnvironmentVariable("Path", $NewPath, "User")
 }
 
@@ -58,7 +57,7 @@ if (Test-Path $InstallDir) {
     Remove-Item -Recurse -Force $InstallDir
 }
 
-Write-Host "calculator removed."
+Write-Host "mycalculator removed."
 Write-Host "Please restart your terminal."
 '@
 
